@@ -2,13 +2,13 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ahmad
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Settings.lua"))()
 
 local Window = Library:Start({
-  ["Name"] = "Speed Hub X | " .. Version,
-  ["SaveFolder"] = "Speed Hub X"
+  ["Name"] = "Morbax X Hub | " .. Version,
+  ["SaveFolder"] = "Morbax X Hub"
 })
 
 game.StarterGui:SetCore("SendNotification", {Title = "Script Status", Text = "Loading...", Icon = "rbxassetid://0", Duration = 10})
 
-local SpeedHubX = {}
+local MorbaxXHub = {}
 
 local Funcs = {} do
   function Funcs:AddToggle(Section, Name, Content, Default)
@@ -17,7 +17,7 @@ local Funcs = {} do
       ["Content"] = Content,
       ["Default"] = Default,
       ["Callback"] = function(Value)
-        SpeedHubX[Name] = Value
+        MorbaxXHub[Name] = Value
       end,
       ["Flag"] = "SPD/Toggle/" .. tostring(Name)
     })
@@ -33,10 +33,10 @@ local Funcs = {} do
       ["Callback"] = function(Value)
         if not Multi and type(Value) == "table" then
           for _, v in next, Value do
-            SpeedHubX[Name] = v
+            MorbaxXHub[Name] = v
           end
         else
-          SpeedHubX[Name] = Value
+          MorbaxXHub[Name] = Value
         end
       end
     })
@@ -51,7 +51,7 @@ local Funcs = {} do
       ["Increment"] = Increment,
       ["Default"] = Default,
       ["Callback"] = function(Value)
-        SpeedHubX[Name] = Value
+        MorbaxXHub[Name] = Value
       end
     })
   end
@@ -64,7 +64,7 @@ local Funcs = {} do
       ["ClearTextOnFocus"] = ClearText,
       ["Default"] = Default,
       ["Callback"] = function(Value)
-        SpeedHubX[Name] = Value
+        MorbaxXHub[Name] = Value
       end
     })
   end
@@ -486,8 +486,8 @@ local _home = Window:MakeTab("Home") do
 
   local _settings = _home:Section({["Title"] = "Settings", ["Content"] = ""}) do
     Funcs:AddButton(_settings, "Reset Script Saver", "", function()
-      if _isfile("Speed Hub X") then
-        _delfile("Speed Hub X")
+      if _isfile("Morbax X Hub") then
+        _delfile("Morbax X Hub")
       end
     end)
   end
@@ -497,7 +497,7 @@ local _main = Window:MakeTab("Main") do
   local _farminglv = _main:Section({["Title"] = "Farming Level", ["Content"] = ""}) do
     _farminglv:Seperator("Config Quest")
     Funcs:AddToggle(_farminglv, "No Quest", "", false)
-    Funcs:AddToggle(_farminglv, "Take Quest", "", false)
+    Funcs:AddToggle(_farminglv, "Take Quest", "", true)
     _farminglv:Seperator("Farming")
     Funcs:AddToggle(_farminglv, "Auto Farm Level", "", false)
   end
@@ -968,4 +968,4 @@ local _raidesp = Window:MakeTab("Raid / ESP") do
   end
 end
 
-return SpeedHubX
+return MorbaxXHub
