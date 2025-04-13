@@ -5,7 +5,7 @@ local Window = Library:Start({
   ["SaveFolder"] = "Morbax X Hub"
 })
 
-game.StarterGui:SetCore("SendNotification", {Title = "Script Status", Text = "Loading...", Icon = "rbxassetid://0", Duration = 10})
+game.StarterGui:SetCore("SendNotification", {Title = "Script Status", Text = "Loading...", Icon = "", Duration = 10})
 
 local MorbaxXHub = {}
 
